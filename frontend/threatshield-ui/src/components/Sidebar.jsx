@@ -2,7 +2,7 @@ import React from 'react';
 import './Sidebar.css';
 // 1. Import NavLink for navigation
 import { NavLink } from 'react-router-dom'; 
-import { FaShieldAlt, FaTachometerAlt, FaCloud, FaBrain, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import { FaShieldAlt, FaTachometerAlt, FaCloud, FaBrain, FaCog, FaSignOutAlt, FaBug } from 'react-icons/fa';
 
 function Sidebar() {
   return (
@@ -16,6 +16,10 @@ function Sidebar() {
         <NavLink to="/dashboard" className="sidebar-item">
           <FaTachometerAlt />
           <span>Dashboard</span>
+        </NavLink>
+        <NavLink to="/threat-eye" className="sidebar-item">
+            <FaBug />
+            <span>ThreatEye</span>
         </NavLink>
         <NavLink to="/cloud-guard" className="sidebar-item">
           <FaCloud />

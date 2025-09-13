@@ -233,3 +233,29 @@ input:checked + .slider:before {
 
 .result-item.warning { border-left: 4px solid #eab308; }
 .result-item.warning .severity-tag { background-color: #eab308; color: black; }
+
+.url-scanner-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.url-scanner-input .settings-input {
+  flex-grow: 1; /* Make the input take up available space */
+  margin-bottom: 0;
+}
+
+.url-scanner-input .scan-button {
+  margin-top: 0;
+  width: auto; /* Allow button to size to content */
+  padding: 0.75rem 1.5rem;
+}
+
+.url-scanner-input .input-icon {
+  color: var(--text-dark);
+}
+
+/* A new severity color for "Safe" results */
+.result-item.safe { border-left: 4px solid #22c55e; }
+.result-item.safe .severity-tag { background-color: #22c55e; color: white; }

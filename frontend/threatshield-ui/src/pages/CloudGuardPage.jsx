@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // For making API calls
+import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import './ContentPage.css';
 import { FaFileUpload, FaSpinner } from 'react-icons/fa';
@@ -22,23 +22,17 @@ function CloudGuardPage() {
     setIsLoading(true);
     setScanResult(null);
 
-    // Prepare the file for sending
     const formData = new FormData();
-    formData.append('configFile', selectedFile); // 'configFile' must match the backend's field name
+    formData.append('configFile', selectedFile);
 
     try {
-      // Send the file to our Node.js backend
-      const response = await axios.post('http://localhost:3001/api/scan/cloud-config', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      // API call to the Node.js backend on port 3001
+      const response = await axios.post('http://localhost:3001/api/scan/cloud-config', formData);
       setScanResult(response.data);
     } catch (error) {
       console.error("Error scanning file:", error);
-      alert("Failed to scan the file. Please ensure the backend services are running.");
+      alert("Failed to scan the file. Please ensure all backend services are running.");
     }
-
     setIsLoading(false);
   };
 
@@ -50,7 +44,6 @@ function CloudGuardPage() {
           <h1>Cloud Guard</h1>
           <p>Scan your cloud infrastructure configuration files for vulnerabilities.</p>
         </header>
-
         <main className="content-card">
           <div className="file-uploader">
             <label htmlFor="file-upload" className="file-upload-label">
@@ -62,11 +55,10 @@ function CloudGuardPage() {
               {isLoading ? <FaSpinner className="spinner" /> : 'Scan Now'}
             </button>
           </div>
-
           {scanResult && (
             <div className="results-container">
               <h3 className="results-title">Scan complete for: {scanResult.fileName}</h3>
-              {scanResult.misconfigurations.length > 0 ? (
+              {scanResult.misconfigurations && scanResult.misconfigurations.length > 0 ? (
                 <ul className="results-list">
                   {scanResult.misconfigurations.map((item, index) => (
                     <li key={index} className={`result-item ${item.severity.toLowerCase()}`}>

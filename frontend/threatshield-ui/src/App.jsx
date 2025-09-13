@@ -7,6 +7,7 @@ import DashboardPage from './pages/DashboardPage';
 import CloudGuardPage from './pages/CloudGuardPage';
 import AIGuardPage from './pages/AIGuardPage';
 import SettingsPage from './pages/SettingsPage';
+import ThreatEyePage from './pages/ThreatEyePage';
 
 const isAuthenticated = true;
 
@@ -19,6 +20,7 @@ function App() {
         
         {/* 2. Add the new routes, protected by the same logic */}
         <Route path="/dashboard" element={isAuthenticated ? <DashboardPage /> : <Navigate to="/login" />} />
+        <Route path="/threat-eye" element={isAuthenticated ? <ThreatEyePage /> : <Navigate to="/login" />} />
         <Route path="/cloud-guard" element={isAuthenticated ? <CloudGuardPage /> : <Navigate to="/login" />} />
         <Route path="/ai-guard" element={isAuthenticated ? <AIGuardPage /> : <Navigate to="/login" />} />
         <Route path="/settings" element={isAuthenticated ? <SettingsPage /> : <Navigate to="/login" />} />

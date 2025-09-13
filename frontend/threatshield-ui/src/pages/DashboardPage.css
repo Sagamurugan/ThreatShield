@@ -141,7 +141,38 @@
   animation: pulse-dial 2s infinite ease-in-out;
 }
 
+.widget-result.info {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+}
+
 @keyframes pulse-dial {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+widget-button.disabled {
+  background-color: var(--text-dark);
+  cursor: not-allowed;
+}
+
+/* Add this for the spinner animation */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.widget-result-box {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #699cff;
+  border: 1px solid #3B82F6;
 }
