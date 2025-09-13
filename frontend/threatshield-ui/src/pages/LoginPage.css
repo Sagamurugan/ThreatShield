@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap');
+
+/* --- HACKER GREEN THEME --- */
+
+
+.login-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(13, 2, 8, 0.85);
+}
+
+.login-form-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  background-color: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: pulse-border-green 3s ease-in-out infinite;
+}
+
+@keyframes pulse-border-green {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 65, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 65, 0.7); }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 0 8px var(--accent-green);
+}
+
+.login-header p {
+  margin-top: 0.5rem;
+  color: var(--text-dark);
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-group input::placeholder {
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 15px var(--accent-green);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  background-color: var(--accent-green);
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.submit-button:hover {
+  background-color: var(--accent-green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-dark);
+}
+
+.login-footer a {
+  color: var(--accent-green);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+  color: var(--text-light);
+}
