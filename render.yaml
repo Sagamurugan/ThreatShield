@@ -8,18 +8,14 @@ services:
     buildCommand: "npm install"
     startCommand: "node index.js"
     envVars:
+      # --- THIS IS THE CORRECTED SECTION ---
       - key: THREATEYE_SERVICE_URL
-        fromService:
-          type: web
-          name: ml-threateye-service
-          property: url # <-- ADD THIS LINE
+        value: https://ml-threateye-service.onrender.com
       - key: GUARD_SERVICE_URL
-        fromService:
-          type: web
-          name: ml-guard-service
-          property: url # <-- ADD THIS LINE
+        value: https://ml-guard-service.onrender.com
       - key: MONGO_URI
         sync: false
+      # ------------------------------------
 
   # The Python Guard Service
   - type: web
