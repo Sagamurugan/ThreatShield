@@ -9,11 +9,17 @@ services:
     startCommand: "node index.js"
     envVars:
       - key: THREATEYE_SERVICE_URL
-        fromService: { type: web, name: ml-threateye-service }
+        fromService:
+          type: web
+          name: ml-threateye-service
+          property: url # <-- ADD THIS LINE
       - key: GUARD_SERVICE_URL
-        fromService: { type: web, name: ml-guard-service }
+        fromService:
+          type: web
+          name: ml-guard-service
+          property: url # <-- ADD THIS LINE
       - key: MONGO_URI
-        sync: false # You will add this secret value on the Render dashboard
+        sync: false
 
   # The Python Guard Service
   - type: web
