@@ -23,7 +23,7 @@ function AIGuardPage() {
     formData.append('datasetFile', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:3001/api/scan/ai-dataset', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/scan/ai-dataset`, formData);
       setScanResult(response.data);
     } catch (error) {
       console.error("Error scanning dataset:", error);

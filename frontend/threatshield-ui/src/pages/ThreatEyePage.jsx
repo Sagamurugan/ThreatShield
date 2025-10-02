@@ -33,7 +33,7 @@ function ThreatEyePage() {
     setScanResult(null);
 
     try {
-        const response = await axios.post('http://localhost:3001/api/scan/url', { url: urlToScan });
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/scan/url`, { url: urlToScan });
         setScanResult(response.data);
     } catch (error) {
         console.error("Error scanning URL:", error);

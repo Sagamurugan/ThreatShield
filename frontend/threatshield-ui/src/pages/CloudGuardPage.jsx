@@ -27,7 +27,9 @@ function CloudGuardPage() {
 
     try {
       // API call to the Node.js backend on port 3001
-      const response = await axios.post('http://localhost:3001/api/scan/cloud-config', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/scan/cloud-config`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       setScanResult(response.data);
     } catch (error) {
       console.error("Error scanning file:", error);

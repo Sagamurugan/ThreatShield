@@ -1,0 +1,34 @@
+services:
+  # The Node.js API Gateway
+  - type: web
+    name: api-gateway
+    env: node
+    rootDir: backend/api-gateway
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node index.js"
+    envVars:
+      - key: THREATEYE_SERVICE_URL
+        fromService: { type: web, name: ml-threateye-service }
+      - key: GUARD_SERVICE_URL
+        fromService: { type: web, name: ml-guard-service }
+      - key: MONGO_URI
+        sync: false # You will add this secret value on the Render dashboard
+
+  # The Python Guard Service
+  - type: web
+    name: ml-guard-service
+    env: python
+    rootDir: backend/ml-guard-service
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+
+  # The Python ThreatEye Service
+  - type: web
+    name: ml-threateye-service
+    env: python
+    rootDir: backend/ml-threateye-service
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python train_model.py"
+    startCommand: "gunicorn app:app"
