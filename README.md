@@ -16,6 +16,3 @@ ThreatShield is an all-in-one dashboard that provides three critical layers of d
 * **Backend API Gateway:** Node.js, Express.js
 * **ML Microservices:** Python, Flask, Pandas, Scikit-learn
 * **Database:** MongoDB (for future alert logging)
-
-## How to Run
-[Briefly list the steps to start the 4 servers]
